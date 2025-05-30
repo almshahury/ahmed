@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول - DronesExpress</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>🔐 تسجيل الدخول</h2>
+    <input type="password" id="passwordInput" placeholder="أدخل كلمة المرور" />
+    <button onclick="login()">دخول</button>
+    <p id="errorMsg" style="color:red; display:none;">كلمة المرور غير صحيحة</p>
+  </div>
+
+  <script>
+    function login() {
+      const password = document.getElementById("passwordInput").value;
+      const correct = "admin"; // ✏️ عدلها لكلمة المرور اللي تحبها
+
+      if (password === correct) {
+        localStorage.setItem("password", password);
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
